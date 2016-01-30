@@ -1,0 +1,42 @@
+<style>
+#beer {
+  font-family: helvetica, verdana, sans-serif;
+  font-size: 1em;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: 1em;
+  padding: 2em;
+}
+
+#beer.active {
+  background: green;
+}
+</style>
+
+<button id="beer">Open the tap</button><br />
+<div id="beer_message"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const beer_button = document.querySelector('#beer');
+const beer_message = document.querySelector('#beer_message');
+
+var socket = io.connect('http://localhost:8080');
+
+beer_button.addEventListener('click', function (event) {
+  var isActive = beer_button.classList.contains('active');
+
+  if (isActive) {
+    beer_button.classList.remove('active');
+    beer_button.textContent = 'Open the tap';
+    socket.emit('beer', {beer: false});
+  } else {
+    beer_button.classList.add('active');
+    beer_button.textContent = 'Lock the tap';
+    socket.emit('beer', {beer: true});
+  }
+});
+</script>

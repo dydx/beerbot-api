@@ -1,0 +1,15 @@
+<div id="beer_status"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const beer_status = document.querySelector('#beer_status');
+var socket = io.connect('http://localhost:8080');
+
+socket.on('beer_status', function (data) {
+  if (data.beer === true) {
+    beer_status.textContent = 'beer is ready!';
+  } else if (data.beer === false) {
+    beer_status.textContent = 'beer is closed';
+  }
+});
+</script>
