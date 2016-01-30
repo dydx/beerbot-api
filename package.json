@@ -1,0 +1,25 @@
+{
+  "name": "beerbot-api",
+  "version": "0.1.0",
+  "description": "robot to handle notifications about when the keg is open",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dydx/beerbot-api.git"
+  },
+  "keywords": [
+    "beer"
+  ],
+  "author": "Josh Sandlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dydx/beerbot-api/issues"
+  },
+  "homepage": "https://github.com/dydx/beerbot-api#readme",
+  "dependencies": {
+    "socket.io": "^1.4.5"
+  }
+}
